@@ -60,6 +60,8 @@ class Beam():
         # bestScoresId is flattened as a (beam x word) array,
         # so we need to calculate which word and beam each score came from
         prev_k = best_scores_id / num_words
+        print(best_scores_id)
+        print(prev_k)
         self.prev_ks.append(prev_k)
         self.next_ys.append(best_scores_id - prev_k * num_words)
 
@@ -96,6 +98,7 @@ class Beam():
         """ Walk back to construct the full hypothesis. """
         hyp = []
         for j in range(len(self.prev_ks) - 1, -1, -1):
+            print(j)
             print(k)
             print("next: ", self.next_ys)
             print("prev: ", self.prev_ks)
