@@ -24,7 +24,7 @@ class Beam():
         self.prev_ks = []
 
         # The outputs at each time-step.
-        self.next_ys = [torch.full((size,), Constants.PAD, dtype=torch.long, device=device)]
+        self.next_ys = [torch.full((size,), Constants.PAD, dtype=torch.float, device=device)]
         self.next_ys[0][0] = Constants.BOS
 
     def get_current_state(self):
