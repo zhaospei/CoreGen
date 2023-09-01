@@ -24,7 +24,7 @@ class Beam():
         self.prev_ks = []
 
         # The outputs at each time-step.
-        self.next_ys = [torch.full((size,), Constants.PAD, dtype=torch.float, device=device)]
+        self.next_ys = [torch.full((size,), Constants.PAD, dtype=torch.long, device=device)]
         self.next_ys[0][0] = Constants.BOS
 
     def get_current_state(self):
@@ -96,6 +96,7 @@ class Beam():
         """ Walk back to construct the full hypothesis. """
         hyp = []
         for j in range(len(self.prev_ks) - 1, -1, -1):
+            print(k)
             hyp.append(self.next_ys[j+1][k])
             k = self.prev_ks[j][k]
 
