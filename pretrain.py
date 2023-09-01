@@ -17,6 +17,8 @@ def preprocess_for_pretrain(lines, mask_rate, in_statement_pred):
     after_commit = []
 
     for idx, line in enumerate(lines):
+        if len(line) <= 0:
+            continue
         if line[0] == "+":
             after_commit.append(line[1:])
             addition_idx.append(idx)
