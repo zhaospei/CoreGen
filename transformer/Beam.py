@@ -96,7 +96,10 @@ class Beam():
         """ Walk back to construct the full hypothesis. """
         hyp = []
         for j in range(len(self.prev_ks) - 1, -1, -1):
-            print(k.type())
+            print(k)
+            print("next: ", self.next_ys)
+            print("prev: ", self.prev_ks)
+            print("------")
             hyp.append(self.next_ys[j+1][k])
             k = self.prev_ks[j][k]
 
